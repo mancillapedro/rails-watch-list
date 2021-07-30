@@ -4,11 +4,15 @@
 
 <%= link_to '#New_list', new_list_path, class: "btn btn-primary col-12 mb-5" %>
 <div class="container">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="row row-cols-1 row-cols-md-3">
     <% @lists.each do |list| %>
       <div class="col">
-        <%=link_to list.name, list_path(list), class:"card-category", style:"background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{list.movies.first.poster_url}"%>
+        <div class="card mb-3">
+          <%= link_to "", list_path(list), class:"card-img card-category", style:"background-image: url(#{cl_image_path list.photo.key if list.photo.attached?})" %>
+          <%= link_to list.name, list_path(list), class:"card-img-overlay card-category" %>
+        </div>
       </div>
     <% end %>
   </div>
+  <a href="#">esto es una prueba de como se comportan los enlaces en bootstrap</a>
 </div>
